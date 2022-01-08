@@ -1,6 +1,7 @@
-# Skidra
-A program to generate quantivative &amp; qualitative statistics from .csv database files to Excel via a simple UI<br>
-<i>(Successor of <a href='https://github.com/Criomby/hubspool'>Hubspool</a>)</i><br>
+<p align='center'><img src="https://user-images.githubusercontent.com/86114549/148660875-6ba0a22e-668e-4efb-9bf9-df6935add889.png" alt="Skidra_Logo_comp" width="300"></p>
+
+<p align='center'>A program to generate quantivative &amp; qualitative statistics from .csv database files to Excel via a simple UI<br>
+<i>(Successor of <a href='https://github.com/Criomby/hubspool'>Hubspool</a>)</i></p><br>
 
 ## Download Info: <br>
 <h3> Latest ready-to-use version (Windows only):</h3>
@@ -25,21 +26,22 @@ Verify your download:<br>
 > <strong>3.</strong> Click 'process'. <br>
 <br>
 
-## User manual:
-.<br>
-.<br>
-<br>
-
 <strong>Options</strong><br>
 > <strong>Generate Excel:</strong> Saves the output into an Excel file (see below)<br>
 > <strong>ALL:</strong> Executes all analyzes mentioned below<br>
 > 
-> <strong>Industries:</strong><br>
-> <strong>Leads:</strong><br>
-> <strong>Leads/ind.:</strong><br>
-> <strong>Topleads:</strong><br>
-> <strong>Pitches:</strong><br>
-> <strong>Reasons:</strong><br>
+> <strong>Industries:</strong> How many companies are in each industry.<br>
+> <strong>Leads:</strong> How many leads are in each lead category.<br>
+> <strong>Leads/ind.:</strong> How many leads in lead categories per industry.<br>
+> <strong>Topleads:</strong> All companies with lead status 'Qualified Lead', 'Follow-up' or 'Contract'.<br>
+> <strong>Pitches:</strong> All companies with pitch data and the respective data.<br>
+> <strong>Reasons:</strong> All companies with reasons data and the respective data.<br>
+<br>
+
+## User manual:
+.<br>
+.<br>
+<br>
 
 ## Recommendations: <br>
 The program gets every industry and lead status from HubSpot without any changes to the initial setup required.<br>
@@ -124,7 +126,7 @@ To run the program, follow the process below:<br>
 <img src="https://user-images.githubusercontent.com/86114549/141657566-c661a1bd-5918-43c5-b8e3-3b61f14e79e0.png" alt="defender_more_details"></a>
 
 <br>
-<ul><li><strong>Dependencies?</strong><br></ul></li>
+<ul><li><strong>Dependencies for Python distribution?</strong><br></ul></li>
 See requirements.txt.<br>
 <br>
 
