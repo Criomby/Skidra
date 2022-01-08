@@ -19,6 +19,9 @@ Verify your download:<br>
 <br>
 
 ## Getting started:
+<i>Skidra requires you to have Python installed.<br>
+For more information see user manual below.</i><br>
+
 <strong>General workflow:</strong><br>
 > 
 > <strong>1.</strong> Click 'Select file' and select the .csv data file you want to analyze. <br>
@@ -39,8 +42,9 @@ Verify your download:<br>
 <br>
 
 ## User manual:
-.<br>
-.<br>
+For the initial setup please follow the setup process when first starting the program:<br>
+
+<br>
 <br>
 
 ## Recommendations: <br>
