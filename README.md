@@ -1,11 +1,15 @@
-<p align='center'><img src="https://user-images.githubusercontent.com/86114549/148660875-6ba0a22e-668e-4efb-9bf9-df6935add889.png" alt="Skidra_Logo_comp" width="300"></p>
+<p align='center'><img src="https://user-images.githubusercontent.com/86114549/148660875-6ba0a22e-668e-4efb-9bf9-df6935add889.png" alt="Skidra_Logo_comp" width="300">
 
 <p align='center'>A program to generate quantivative &amp; qualitative statistics from .csv database files to Excel via a simple UI<br>
-<i>(Successor of <a href='https://github.com/Criomby/hubspool'>Hubspool</a>)</i></p><br>
+<i>(Successor of <a href='https://github.com/Criomby/hubspool'>Hubspool</a>)</i><br>
+<br>
+
+<p align='center'><img width="591" alt="Screenshot 2022-01-08 233034" src="https://user-images.githubusercontent.com/86114549/148700854-585f62be-f07f-4c67-849b-e8b7716e0049.png"></p>
+<br>
 
 ## Download Info: <br>
 <h3> Latest ready-to-use version (Windows only):</h3>
-<h3><a href=''>Download Skidra_v1.0.exe</a><br></h3>
+<h3><a href='https://github.com/Criomby/Skidra/releases/tag/v1.0'>Download Skidra v1.0</a><br></h3>
 <br>
 Download the .exe and execute it as an administrator.<br>
 <br>
@@ -20,13 +24,13 @@ Verify your download:<br>
 
 ## Getting started:
 <i>Skidra requires you to have Python installed.<br>
-For more information see user manual below.</i><br>
+For more information of the initial setup see user manual below.</i><br>
 
-<strong>General workflow:</strong><br>
+<strong>Action!</strong><br>
 > 
-> <strong>1.</strong> Click 'Select file' and select the .csv data file you want to analyze. <br>
-> <strong>2.</strong> Check the desired functions.<br>
-> <strong>3.</strong> Click 'process'. <br>
+> <strong>1. Select file:</strong> Select the .csv data file you want to analyze.<br>
+> <strong>2. Options:</strong> Check the desired functions (see below).<br>
+> <strong>3. Process:</strong> Execute checked functions.<br>
 <br>
 
 <strong>Options</strong><br>
@@ -42,7 +46,77 @@ For more information see user manual below.</i><br>
 <br>
 
 ## User manual:
-For the initial setup please follow the setup process when first starting the program:<br>
+### Initial setup
+When starting Skidra for the first time, you have to select the location of your Python distribution & Skidra Python script.<br>
+
+<i><b>Notice:</b> You have to have Python installed.<br>
+If you do not have Python installed, you can get it on the <a href='https://www.python.org/downloads/'>official Website</a> or the <a href='https://www.microsoft.com/store/productId/9PJPW5LDXLZ5'>Windows Store</a>.</i><br>
+
+<img width="350" alt="Screenshot 2022-01-08 232136" src="https://user-images.githubusercontent.com/86114549/148699791-ef1705a7-9126-4e3a-bea7-ff2f916c24dc.png">
+<br>
+
+Select the Python.exe:<br>
+<img width="600" alt="Screenshot 2022-01-08 232136" src="https://user-images.githubusercontent.com/86114549/148700089-20da7134-b99d-4291-804e-74c7b62a8f4c.png">
+<br>
+<br>
+Then select the location of the Skidra Python script:<br>
+<img width="350" alt="Screenshot 2022-01-08 232302" src="https://user-images.githubusercontent.com/86114549/148700220-179f8acb-a276-428b-9b66-1d1bbad5820f.png">
+<br>
+<img width="600" alt="Screenshot 2022-01-08 232431" src="https://user-images.githubusercontent.com/86114549/148700223-e2a8e713-e2d6-479e-82cb-e7f5184cc165.png">
+<br>
+<br>
+After that, the program will start right up each time, unless the Python.exe or Python script is moved.<br>
+<br>
+<br>
+
+### Operation
+
+<i>Buttons and checkboxes are explained above already, so here are some examples of operation:</i><br>
+<br>
+Select a .csv file: (For informations regarding file requirements see below).<br>
+<br>
+<img width="650" alt="Screenshot 2022-01-08 232451" src="https://user-images.githubusercontent.com/86114549/148700942-2741a9ab-5220-41b5-8226-7a920bb7257d.png">
+<br>
+<img width="650" alt="Screenshot 2022-01-08 232602" src="https://user-images.githubusercontent.com/86114549/148700974-7183225e-73c2-4416-8551-a4dfde5a7026.png">
+<br>
+<br>
+If you select 'ALL' every check will be processes, alterantively you can also select individual checks.<br>
+
+<img width="650" alt="Screenshot 2022-01-08 233034" src="https://user-images.githubusercontent.com/86114549/148701179-8617e831-2079-481f-9ec4-9ece53d8931e.png">
+
+
+If you select 'Generate Excel', the Excel file will be saved next to your source .csv file.<br>
+Also, the filepath of the Excel is shown on top.<br>
+<br>
+<img width="181" alt="Screenshot 2022-01-03 204804" src="https://user-images.githubusercontent.com/86114549/148701167-1a83433d-37eb-4540-ba28-e5585dc437b4.png">
+<br>
+
+The Excel file will contain the following sheets (depending on your selection of options):<br>
+<br>
+<img width="700" alt="Screenshot 2022-01-04 101417" src="https://user-images.githubusercontent.com/86114549/148701265-6709fed5-2946-44b6-bfd6-d5ecb3d92af5.png">
+<br>
+Leads:<br>
+<img width="644" alt="Screenshot 2022-01-03 204853" src="https://user-images.githubusercontent.com/86114549/148701344-4922457c-9037-4e6e-972a-6d7580d16978.png">
+<br>
+<br>
+Industries:<br>
+<img width="685" alt="Screenshot 2022-01-03 204914" src="https://user-images.githubusercontent.com/86114549/148701361-abc11d78-5300-4f67-bb62-905de90cc299.png">
+<br>
+<br>
+Leads_by_industries (only excerpt of list displayed here):<br>
+![Screenshot 2022-01-03 222332](https://user-images.githubusercontent.com/86114549/148701384-5c10d01f-45b3-4956-80bf-3c6dbb8d4c6c.png)
+<br>
+<br>
+Pitches:<br>
+
+Rejection reasons:<br>
+
+Topleads:<br>
+
+
+
+
+
 
 <br>
 <br>
@@ -84,6 +158,7 @@ For the function 'Pitches', a company information entry has to be set up in HubS
 If a company / contact person rejects your offer, the reason for the rejection must be entered under "Company Information" under "Reason for rejection / unsuitability"
 within HubSpot.<br>
 This category has to be manually added to the HubSpot database default configuration.<br>
+<br>
 
 <h2>FAQ:</h2><br>
 Regarding questions or other inquiries message me at:<br>
@@ -114,6 +189,7 @@ The file has to contain the following columns:<br>
 <ul><li><strong>I have an Apple computer, can I use the ready-to-use release, too?</strong><br></ul></li>
 The ready-to-use-version is Windows only atm.<br>
 To run the program on MacOS, download the two scripts and run them in your local Python distribution, IDE or compile them yourself.<br>
+<br>
 <br>
 <ul><li><strong>Windows Defender doesn't let me run the program:</strong><br></ul></li>
 MS Windows' built-in antivirus Windows Defender automatically blocks any kind of unknown programs by default.<br>
