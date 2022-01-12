@@ -71,7 +71,7 @@ After that, the program will start right up each time, unless the Python.exe or 
 
 ### Operation
 
-<i>Buttons and checkboxes are explained above already, so here are some examples of operation:</i><br>
+<i>Buttons and checkboxes are explained <a href='https://github.com/Criomby/Skidra#getting-started'>above</a> already, so here are some examples of operation:</i><br>
 <br>
 Select a .csv file: (For informations regarding file requirements see below).<br>
 <br>
@@ -80,7 +80,9 @@ Select a .csv file: (For informations regarding file requirements see below).<br
 <img width="650" alt="Screenshot 2022-01-08 232602" src="https://user-images.githubusercontent.com/86114549/148700974-7183225e-73c2-4416-8551-a4dfde5a7026.png">
 <br>
 <br>
-If you select 'ALL' every check will be processes, alterantively you can also select individual checks.<br>
+If you select 'ALL' every check will be processed, alternatively you can also select checks individually.<br>
+
+The output will be displayed in the textbox.<br>
 
 <img width="650" alt="Screenshot 2022-01-08 233034" src="https://user-images.githubusercontent.com/86114549/148701179-8617e831-2079-481f-9ec4-9ece53d8931e.png">
 
@@ -108,11 +110,11 @@ Leads_by_industries (only excerpt of list displayed here):<br>
 <br>
 <br>
 Pitches:<br>
-
+tbd<br>
 Rejection reasons:<br>
-
+tbd<br>
 Topleads:<br>
-
+tbd<br>
 
 
 
