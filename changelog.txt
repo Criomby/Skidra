@@ -1,0 +1,5 @@
+-- skidra.py --
+1.1
+Exported Excel files named 'Skidra_export_{date}.xlsx'.
+Exported filename independent of source csv filename,
+as before issues with renamed files may occurr. 
