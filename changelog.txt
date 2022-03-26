@@ -1,0 +1,7 @@
+1.1
+Error messages are displayed in output textbox;
+check for column names at process start and return names of mising data columns in .csv;
+TODO: refactoring of .read.csv logic
+
+1.0
+First production release.
