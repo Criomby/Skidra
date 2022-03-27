@@ -143,7 +143,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(251)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(228)))), ((int)(((byte)(205)))));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(40, 622);
             this.button1.Name = "button1";
@@ -233,6 +233,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.checkBoxRej);
             this.groupBox1.Controls.Add(this.checkBoxExcel);
             this.groupBox1.Controls.Add(this.checkBox2);
@@ -268,7 +270,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 27;
-            this.label2.Text = "v1.0";
+            this.label2.Text = "v1.1";
             // 
             // Form1
             // 

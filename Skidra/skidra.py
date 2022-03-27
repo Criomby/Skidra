@@ -2,6 +2,8 @@
 # philippebraum@pm.me
 # www.philippebraum.de
 
+# version 1.1
+
 import pandas as pd
 from pandas.api.types import CategoricalDtype
 import xlsxwriter
@@ -14,10 +16,19 @@ import sys
 class App:
 
     def __init__(self):
-        # self.table_savestate1 = pd.DataFrame()
-        self.tb_width = 127
+        self.tb_width = 127  # char width of textbox in Skidra interface
         self.company_data_filepath = sys.argv[1]
         self.new_filepath = self.company_data_filepath[:-48] + f'Hubspool_{datetime.date.today()}.xlsx'
+
+        try:
+            self.hubspot_org = pd.read_csv(self.company_data_filepath)
+        except FileNotFoundError as e:
+            print(repr(e))
+            print(f'\nFile could not be found:\n{self.company_data_filepath}\n\nPlease remove any whitespace in the filename and try again.')
+        
+        COLUMNS = ['Company name', 'Lead Status', 'Industry', 'Company owner', 'Create Date', 'Pitch', 'Reason for rejection / unsuitability']
+        self.check_column_names(COLUMNS)
+
         self.excel = bool(util.strtobool(sys.argv[2]))
         self.allchk = bool(util.strtobool(sys.argv[3]))
         self.ind = bool(util.strtobool(sys.argv[4]))
@@ -26,9 +37,10 @@ class App:
         self.top = bool(util.strtobool(sys.argv[7]))
         self.pit = bool(util.strtobool(sys.argv[8]))
         self.res = bool(util.strtobool(sys.argv[9]))
-        self.checks()
 
-    def checks(self):
+        self.process()
+
+    def process(self):
         print('-'*self.tb_width)
         if self.excel and os.path.isfile(self.new_filepath):
             try:
@@ -124,107 +136,108 @@ class App:
                     worksheet_reasons.set_column(2, 2, 12)
                     worksheet_reasons.set_column(3, 3, 70)
 
+    def check_column_names(self, columns):
+        columns_file = self.hubspot_org.columns.values.tolist()
+        error = False
+        missing = list()
+        for i in range(0, len(columns), 1):
+            if columns[i] not in columns_file:
+                error = True
+                missing.append(columns[i])
+        if error:
+            print('The following column(s) and corresponding data is missing from the database file:\n')
+            for i in missing:
+                print(f'--- {i} ---')
+            print('\nPlease add the missing data and try again.\n\nFor additional information on file requirements see GitHub.')
+            sys.exit()
+
     def get_leads(self):
-        leads = lead_count(self.company_data_filepath)
+        leads = self.lead_count()
         print(f'Leads:\n\n{leads}')
         print('-'*self.tb_width)
         return leads
 
+    def lead_count(self):
+        csv1 = self.hubspot_org[['Company name', 'Lead Status', 'Industry']].groupby(
+            'Lead Status').size().to_frame().reset_index()
+        csv1 = csv1.rename(columns={'Lead Status': 'Description', 0: 'Count'})
+        lead_cat_order = CategoricalDtype(['Cold', 'Cold Contacted', 'Warm', 'Follow-up', 'Qualified Lead',
+                                           'Contract', 'Rejected', 'Ineligible'], ordered=True)
+        csv1['Description'] = csv1['Description'].astype(lead_cat_order)
+        leads_inorder = csv1.sort_values('Description')
+        return leads_inorder
+
     def get_industries(self):
-        industries = industry_count(self.company_data_filepath)
+        industries = self.industry_count()
         print(f'Industries:\n\n{industries}')
         print('-'*self.tb_width)
         return industries
 
+    def industry_count(self):
+        csv1 = self.hubspot_org[['Company name', 'Lead Status', 'Industry']].groupby('Industry').size().to_frame().reset_index()
+        csv1 = csv1.rename(columns={'Industry': 'Description', 0: 'Count'})
+        cats_disordered = csv1.sort_values(by='Count', ascending=False)
+        return cats_disordered
+
     def get_leadsbyindustry(self):
-        ldsbyind = leadsbyindustry(self.company_data_filepath)
+        ldsbyind = self.leadsbyindustry()
         print(f'Leads per Industry:\n\n{ldsbyind}')
         print('-'*self.tb_width)
         return ldsbyind
 
+    def leadsbyindustry(self):
+        csv1 = self.hubspot_org[['Lead Status', 'Industry']]
+        total = pd.DataFrame([['', '']], columns=pd.Index(['Lead Status', 0], dtype='object'))
+        empt = pd.DataFrame([['', '']], columns=pd.Index(['Lead Status', 0], dtype='object'))
+        industries = csv1['Industry'].unique().tolist()
+        for i in industries:
+            x = csv1[csv1['Industry'] == i].groupby(
+                'Lead Status').size().to_frame().reset_index().sort_values(by=[0], ascending=False)
+            dfx = pd.DataFrame([[i, '']], columns=x.columns)
+            total = total.append(dfx).append(x).append(empt)
+        total.rename(columns={'Lead Status': 'Description', 0: 'Count'}, inplace=True)
+        return total
+
     def get_topleads(self):
-        topleads = get_topleads(self.company_data_filepath)
+        topleads = self.topleads()
         print(f'Topleads:\n\n{topleads}')
         print('-'*self.tb_width)
         return topleads
 
+    def topleads(self):
+        csv1 = self.hubspot_org[['Company name', 'Lead Status', 'Industry', 'Company owner']]
+        tanalysis_topleads_followup = csv1[csv1['Lead Status'] == 'Follow-up']
+        tanalysis_topleads_qualified = tanalysis_topleads_followup.append(csv1[csv1['Lead Status'] == 'Qualified Lead'])
+        tanalysis_topleads = tanalysis_topleads_qualified.append(csv1[csv1['Lead Status'] == 'Contract'])
+        return tanalysis_topleads
+
     def get_pitches(self):
-        pitches = get_pitches(self.company_data_filepath)
+        pitches = self.pitches()
         print(f'Pitchlist:\n\n{pitches}')
         print('-'*self.tb_width)
         return pitches
 
+    def pitches(self):
+        csv1 = self.hubspot_org[['Company name', 'Pitch']]
+        filtered_csv1 = csv1[csv1['Pitch'].notnull()]
+        result = filtered_csv1.sort_values(by='Pitch')
+        return result
+
     def get_reasons(self):
-        reasons = reject_reasons(self.company_data_filepath)
+        reasons = self.reasons()
         print(f'Rejection reasons:\n\n{reasons}')
         print('-'*self.tb_width)
         return reasons
 
+    def reasons(self):  # reject reasons
+        csv1 = self.hubspot_org[['Company name', 'Industry', 'Lead Status', 'Reason for rejection / unsuitability']]
+        filtered_csv1 = csv1[csv1['Reason for rejection / unsuitability'].notnull()]
+        result = filtered_csv1.sort_values(by='Lead Status')
+        return result
 
-def lead_count(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Lead Status', 'Industry']].groupby(
-        'Lead Status').size().to_frame().reset_index()
-    csv1 = csv1.rename(columns={'Lead Status': 'Description', 0: 'Count'})
-    lead_cat_order = CategoricalDtype(['Cold', 'Cold Contacted', 'Warm', 'Follow-up', 'Qualified Lead',
-                                       'Contract', 'Rejected', 'Ineligible'], ordered=True)
-    csv1['Description'] = csv1['Description'].astype(lead_cat_order)
-    leads_inorder = csv1.sort_values('Description')
-    return leads_inorder
-
-
-def industry_count(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Lead Status', 'Industry']].groupby('Industry').size().to_frame().reset_index()
-    csv1 = csv1.rename(columns={'Industry': 'Description', 0: 'Count'})
-    cats_disordered = csv1.sort_values(by='Count', ascending=False)
-    return cats_disordered
-
-
-def get_topleads(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Lead Status', 'Industry', 'Company owner']]
-    tanalysis_topleads_followup = csv1[csv1['Lead Status'] == 'Follow-up']
-    tanalysis_topleads_qualified = tanalysis_topleads_followup.append(csv1[csv1['Lead Status'] == 'Qualified Lead'])
-    tanalysis_topleads = tanalysis_topleads_qualified.append(csv1[csv1['Lead Status'] == 'Contract'])
-    return tanalysis_topleads
-
-
-def printall_org_table(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Lead Status', 'Industry', 'Create Date']]
-    return csv1
-
-
-def leadsbyindustry(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Lead Status', 'Industry']]
-    total = pd.DataFrame([['', '']], columns=pd.Index(['Lead Status', 0], dtype='object'))
-    empt = pd.DataFrame([['', '']], columns=pd.Index(['Lead Status', 0], dtype='object'))
-    industries = csv1['Industry'].unique().tolist()
-    for i in industries:
-        x = csv1[csv1['Industry'] == i].groupby(
-            'Lead Status').size().to_frame().reset_index().sort_values(by=[0], ascending=False)
-        dfx = pd.DataFrame([[i, '']], columns=x.columns)
-        total = total.append(dfx).append(x).append(empt)
-    total.rename(columns={'Lead Status': 'Description', 0: 'Count'}, inplace=True)
-    return total
-
-
-def get_pitches(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Pitch']]
-    filtered_csv1 = csv1[csv1['Pitch'].notnull()]
-    result = filtered_csv1.sort_values(by='Pitch')
-    return result
-
-
-def reject_reasons(inputfile):
-    hubspot_org = pd.read_csv(inputfile)
-    csv1 = hubspot_org[['Company name', 'Industry', 'Lead Status', 'Reason for rejection / unsuitability']]
-    filtered_csv1 = csv1[csv1['Reason for rejection / unsuitability'].notnull()]
-    result = filtered_csv1.sort_values(by='Lead Status')
-    return result
+    def printall_org_table(self):
+        csv1 = self.hubspot_org[['Company name', 'Lead Status', 'Industry', 'Create Date']]
+        return csv1
 
 
 if __name__ == '__main__':
