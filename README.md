@@ -9,7 +9,7 @@
 
 ## Download Info: <br>
 <h3> Latest ready-to-use version (Windows only):</h3>
-<h3><a href='https://github.com/Criomby/Skidra/releases/tag/v1.0'>Download Skidra v1.0</a><br></h3>
+<h3><a href='https://github.com/Criomby/Skidra/releases/tag/v1.1'>Download Skidra v1.1</a><br></h3>
 <br>
 Download the .exe and execute it as an administrator.<br>
 <br>
@@ -17,7 +17,7 @@ If you have issues running the program, see the manual or the FAQ below.<br>
 <h3>Be reassured: It's open source and safe for you and your data!</h3><br>
 
 Verify your download:<br>
-(SHA256sum) <br>
+(SHA256sum) 539a98b830001c4b6b41eac15cc8dae40d7d13b6804df1d0d3db0e3492d6c35b<br>
 (To verify your download you can use the <a href='https://github.com/Criomby/AutoHasher'>AutoHasher</a>)
 <br>
 <br>
