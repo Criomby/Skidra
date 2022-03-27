@@ -114,15 +114,25 @@ namespace Skidra
             start.Arguments = string.Format("{0} {1}", cmd, args);
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
+            start.RedirectStandardError = true;
             start.CreateNoWindow = true;
             using (Process process = Process.Start(start))
             {
-                using (StreamReader reader = process.StandardOutput)
+                using (StreamReader reader_stdOut = process.StandardOutput)
                 {
-                    string result = reader.ReadToEnd();
-                    //Console.Write(result); // debug
+                    string result = reader_stdOut.ReadToEnd();
+                    //Console.Write("Result Out:", result); // debug
+                    if (result == "")
+                    {
+                        using (StreamReader reader_stdErr = process.StandardError)
+                        {
+                            string err = reader_stdErr.ReadToEnd();
+                            //Console.Write("Result Err:", err); // debug
+                            return err;
+                        }
+                    }
                     return result;
-                }
+                } 
             }
         }
 
@@ -165,7 +175,7 @@ namespace Skidra
             {
                 if ((all || ind || lds || ldsind || top || pit || res) == false) 
                 {
-                    richTextBox1.Text = "Select at least one check on the left or \"ALL\" to select all checks.";
+                    richTextBox1.Text = "Select at least one option on the left or \"ALL\" to select all options.";
                 }
                 else
                 {
