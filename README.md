@@ -9,7 +9,7 @@
 
 ## Download Info: <br>
 <h3> Latest ready-to-use version (Windows only):</h3>
-<h3><a href='https://github.com/Criomby/Skidra/releases/tag/v1.1'>Download Skidra v1.1</a><br></h3>
+<h3><a href='https://github.com/Criomby/Skidra/releases/tag/v1.2'>Download Skidra v1.2</a><br></h3>
 <br>
 Download the .exe and execute it as an administrator.<br>
 <br>
