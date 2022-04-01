@@ -17,6 +17,7 @@ namespace Skidra
         private string Python = Properties.Settings.Default.Python;
         private string PyScript = Properties.Settings.Default.PyScript;
         private string filepath = null;
+        private string fileDir = null;
 
         private bool excel = false;
         private bool all = false;
@@ -154,12 +155,14 @@ namespace Skidra
                 FilterIndex = 2,
                 RestoreDirectory = true,
                 ReadOnlyChecked = true,
-                ShowReadOnly = true
+                ShowReadOnly = true,
+                Multiselect = false,
             };
 
             if (openFileDialog3.ShowDialog() == DialogResult.OK)
             {
                 filepath = openFileDialog3.FileName;
+                fileDir = Path.GetDirectoryName(filepath);
                 string filename = openFileDialog3.SafeFileName;
                 richTextBox1.Text = "Selected file:\n" + filename;
             }
@@ -179,8 +182,8 @@ namespace Skidra
                 }
                 else
                 {
-                    //richTextBox1.Text = $"{filepath} {excel}\n{all}\n{ind}\n{lds}\n{ldsind}\n{top}\n{pit}\n{rej}"; // testing checkboxes
-                    string pyargs = $"{filepath} {excel} {all} {ind} {lds} {ldsind} {top} {pit} {res}";
+                    Console.WriteLine($"{filepath}\n{fileDir}\n{excel}\n{all}\n{ind}\n{lds}\n{ldsind}\n{top}\n{pit}\n{res}"); // debug
+                    string pyargs = $"{filepath} {fileDir} {excel} {all} {ind} {lds} {ldsind} {top} {pit} {res}";
                     //Console.WriteLine(pyargs); // debug
                     //string result = run_cmd("C:\\Users\\phili\\PycharmProjects\\winforms\\return.py", pyargs); // testing
                     string result = run_cmd(Properties.Settings.Default.PyScript, pyargs);

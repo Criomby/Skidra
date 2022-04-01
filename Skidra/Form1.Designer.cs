@@ -270,7 +270,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 27;
-            this.label2.Text = "v1.1";
+            this.label2.Text = "v1.2";
             // 
             // Form1
             // 

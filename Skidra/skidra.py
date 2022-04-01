@@ -2,7 +2,7 @@
 # philippebraum@pm.me
 # www.philippebraum.de
 
-# version 1.1
+# version 1.2
 
 import pandas as pd
 from pandas.api.types import CategoricalDtype
@@ -18,7 +18,8 @@ class App:
     def __init__(self):
         self.tb_width = 127  # char width of textbox in Skidra interface
         self.company_data_filepath = sys.argv[1]
-        self.new_filepath = self.company_data_filepath[:-48] + f'Hubspool_{datetime.date.today()}.xlsx'
+        self.data_file_directory = sys.argv[2]
+        self.new_filepath = self.data_file_directory + f'\Skidra_export_{datetime.date.today()}.xlsx'
 
         try:
             self.hubspot_org = pd.read_csv(self.company_data_filepath)
@@ -29,14 +30,14 @@ class App:
         COLUMNS = ['Company name', 'Lead Status', 'Industry', 'Company owner', 'Create Date', 'Pitch', 'Reason for rejection / unsuitability']
         self.check_column_names(COLUMNS)
 
-        self.excel = bool(util.strtobool(sys.argv[2]))
-        self.allchk = bool(util.strtobool(sys.argv[3]))
-        self.ind = bool(util.strtobool(sys.argv[4]))
-        self.lds = bool(util.strtobool(sys.argv[5]))
-        self.ldsind = bool(util.strtobool(sys.argv[6]))
-        self.top = bool(util.strtobool(sys.argv[7]))
-        self.pit = bool(util.strtobool(sys.argv[8]))
-        self.res = bool(util.strtobool(sys.argv[9]))
+        self.excel = bool(util.strtobool(sys.argv[3]))
+        self.allchk = bool(util.strtobool(sys.argv[4]))
+        self.ind = bool(util.strtobool(sys.argv[5]))
+        self.lds = bool(util.strtobool(sys.argv[6]))
+        self.ldsind = bool(util.strtobool(sys.argv[7]))
+        self.top = bool(util.strtobool(sys.argv[8]))
+        self.pit = bool(util.strtobool(sys.argv[9]))
+        self.res = bool(util.strtobool(sys.argv[10]))
 
         self.process()
 

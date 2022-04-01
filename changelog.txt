@@ -1,9 +1,28 @@
+Windows application (GUI & pre-checks):
+-----------------------------------------
+
+1.2
+Hands over filepath to processing script to resolve possible export file name bugs;
+
 1.1
 Error messages are displayed in output textbox;
-Check for column names at process start and return names of mising data columns in .csv;
-Improved processing script efficiency in reducing the file read access attemts - refactoring of .read.csv logic;
-Exported Excel files named 'Skidra_export_{date}.xlsx';
-Exported filename independent of source csv filename, before issues with renamed files may occurr;
+Exported filename independent of source csv filename, 
+before issues with renamed files may occurr;
 
 1.0
 First production release.
+
+
+
+Python script (data processing):
+-----------------------------------------
+
+1.2
+Exported Excel files named 'Skidra_export_{date}.xlsx';
+Enabled by receiving filepath from UI app;
+Resolved export file name bugs;
+
+1.1
+Check for column names at process start and return names of mising data columns in .csv;
+Improved processing script efficiency in reducing the file read access attemts - 
+refactoring of .read.csv code logic;
