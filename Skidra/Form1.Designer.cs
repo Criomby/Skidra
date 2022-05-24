@@ -67,7 +67,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(185, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(184, 9);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(60, 20);
             this.linkLabel1.TabIndex = 12;
@@ -89,7 +89,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(251, 9);
+            this.linkLabel2.Location = new System.Drawing.Point(250, 9);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(67, 20);
             this.linkLabel2.TabIndex = 13;
@@ -100,9 +100,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(107, 54);
+            this.pictureBox1.Location = new System.Drawing.Point(106, 54);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 160);
+            this.pictureBox1.Size = new System.Drawing.Size(160, 160);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -111,7 +111,7 @@
             // 
             this.checkBoxExcel.AutoSize = true;
             this.checkBoxExcel.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxExcel.Location = new System.Drawing.Point(17, 38);
+            this.checkBoxExcel.Location = new System.Drawing.Point(16, 38);
             this.checkBoxExcel.Name = "checkBoxExcel";
             this.checkBoxExcel.Size = new System.Drawing.Size(145, 24);
             this.checkBoxExcel.TabIndex = 2;
@@ -122,7 +122,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(187, 38);
+            this.checkBox2.Location = new System.Drawing.Point(188, 38);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(64, 24);
             this.checkBox2.TabIndex = 3;
@@ -133,7 +133,7 @@
             // checkBoxLeads
             // 
             this.checkBoxLeads.AutoSize = true;
-            this.checkBoxLeads.Location = new System.Drawing.Point(187, 102);
+            this.checkBoxLeads.Location = new System.Drawing.Point(188, 102);
             this.checkBoxLeads.Name = "checkBoxLeads";
             this.checkBoxLeads.Size = new System.Drawing.Size(79, 24);
             this.checkBoxLeads.TabIndex = 5;
@@ -156,7 +156,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Location = new System.Drawing.Point(21, 233);
+            this.button2.Location = new System.Drawing.Point(21, 232);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(255, 42);
             this.button2.TabIndex = 10;
@@ -167,7 +167,7 @@
             // checkBoxTop
             // 
             this.checkBoxTop.AutoSize = true;
-            this.checkBoxTop.Location = new System.Drawing.Point(187, 143);
+            this.checkBoxTop.Location = new System.Drawing.Point(188, 143);
             this.checkBoxTop.Name = "checkBoxTop";
             this.checkBoxTop.Size = new System.Drawing.Size(100, 24);
             this.checkBoxTop.TabIndex = 7;
@@ -178,7 +178,7 @@
             // checkBoxInd
             // 
             this.checkBoxInd.AutoSize = true;
-            this.checkBoxInd.Location = new System.Drawing.Point(17, 102);
+            this.checkBoxInd.Location = new System.Drawing.Point(16, 102);
             this.checkBoxInd.Name = "checkBoxInd";
             this.checkBoxInd.Size = new System.Drawing.Size(105, 24);
             this.checkBoxInd.TabIndex = 4;
@@ -189,7 +189,7 @@
             // checkBoxLeadInd
             // 
             this.checkBoxLeadInd.AutoSize = true;
-            this.checkBoxLeadInd.Location = new System.Drawing.Point(17, 143);
+            this.checkBoxLeadInd.Location = new System.Drawing.Point(16, 143);
             this.checkBoxLeadInd.Name = "checkBoxLeadInd";
             this.checkBoxLeadInd.Size = new System.Drawing.Size(108, 24);
             this.checkBoxLeadInd.TabIndex = 6;
@@ -200,7 +200,7 @@
             // checkBoxPit
             // 
             this.checkBoxPit.AutoSize = true;
-            this.checkBoxPit.Location = new System.Drawing.Point(17, 186);
+            this.checkBoxPit.Location = new System.Drawing.Point(16, 186);
             this.checkBoxPit.Name = "checkBoxPit";
             this.checkBoxPit.Size = new System.Drawing.Size(87, 24);
             this.checkBoxPit.TabIndex = 8;
@@ -211,7 +211,7 @@
             // checkBoxRej
             // 
             this.checkBoxRej.AutoSize = true;
-            this.checkBoxRej.Location = new System.Drawing.Point(187, 186);
+            this.checkBoxRej.Location = new System.Drawing.Point(188, 186);
             this.checkBoxRej.Name = "checkBoxRej";
             this.checkBoxRej.Size = new System.Drawing.Size(99, 24);
             this.checkBoxRej.TabIndex = 9;
@@ -226,7 +226,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(376, 9);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(791, 680);
+            this.richTextBox1.Size = new System.Drawing.Size(790, 680);
             this.richTextBox1.TabIndex = 24;
             this.richTextBox1.Text = "";
             this.richTextBox1.ZoomFactor = 1.2F;
@@ -244,7 +244,7 @@
             this.groupBox1.Controls.Add(this.checkBoxLeads);
             this.groupBox1.Controls.Add(this.checkBoxTop);
             this.groupBox1.Controls.Add(this.checkBoxLeadInd);
-            this.groupBox1.Location = new System.Drawing.Point(40, 313);
+            this.groupBox1.Location = new System.Drawing.Point(40, 312);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(296, 292);
             this.groupBox1.TabIndex = 25;
@@ -255,7 +255,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(61, 390);
+            this.pictureBox2.Location = new System.Drawing.Point(62, 389);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(165, 10);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -270,14 +270,14 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 27;
-            this.label2.Text = "v1.2";
+            this.label2.Text = "v1.3";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1179, 701);
+            this.ClientSize = new System.Drawing.Size(1179, 702);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox1);

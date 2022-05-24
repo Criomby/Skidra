@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +29,10 @@ namespace Skidra
         private bool top = false;
         private bool pit = false;
         private bool res = false;
+
+        // button colors definitions for status display
+        private Color idle = Color.FromArgb(211, 228, 205);
+        private Color busy = Color.FromArgb(255, 178, 166);
 
         public Form1()
         {
@@ -111,7 +116,7 @@ namespace Skidra
             ProcessStartInfo start = new ProcessStartInfo();
             // Python venv of hubspool
             //start.FileName = "C:\\Users\\phili\\Documents\\Projects\\hubspool\\venvhub\\Scripts\\python.exe";
-            start.FileName = Properties.Settings.Default.Python;
+            start.FileName = Python;
             start.Arguments = string.Format("{0} {1}", cmd, args);
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
@@ -139,7 +144,7 @@ namespace Skidra
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            {}
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -180,13 +185,11 @@ namespace Skidra
                 {
                     richTextBox1.Text = "Select at least one option on the left or \"ALL\" to select all options.";
                 }
-                else
+                else // start processing
                 {
-                    Console.WriteLine($"{filepath}\n{fileDir}\n{excel}\n{all}\n{ind}\n{lds}\n{ldsind}\n{top}\n{pit}\n{res}"); // debug
                     string pyargs = $"{filepath} {fileDir} {excel} {all} {ind} {lds} {ldsind} {top} {pit} {res}";
                     //Console.WriteLine(pyargs); // debug
-                    //string result = run_cmd("C:\\Users\\phili\\PycharmProjects\\winforms\\return.py", pyargs); // testing
-                    string result = run_cmd(Properties.Settings.Default.PyScript, pyargs);
+                    string result = run_cmd(PyScript, pyargs);
                     richTextBox1.Text = result;
                 }
             }
